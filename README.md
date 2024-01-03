@@ -1,8 +1,9 @@
-
 Blogspot
+
 Blogspot is a simple blogging platform built using Node.js, Express, and MongoDB. It allows users to view, create, edit, and delete blog posts. Users can also filter posts by category and add new posts after logging in.
 
 Getting Started
+
 Follow these instructions to set up and run the project locally on your machine.
 
 Prerequisites

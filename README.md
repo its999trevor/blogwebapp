@@ -1,5 +1,5 @@
 
-**Blogspot**
+****Blogspot****
 
 Blogspot is a feature-rich blogging platform built using Node.js, Express, and MongoDB. It offers a user-friendly interface for viewing, creating, editing, and deleting blog posts. Users can filter posts by category, and authenticated users can add new posts with images, descriptions, and categories.
 

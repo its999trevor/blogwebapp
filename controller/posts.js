@@ -1,6 +1,6 @@
 const Post = require("../models/post");
 const User = require("../models/user");
-const SibApiV3Sdk = require('sib-api-v3-sdk');
+const SibApiV3Sdk = require('sib-api-v3-sdk'); //sendinblue
 
 
 
@@ -8,7 +8,7 @@ const SibApiV3Sdk = require('sib-api-v3-sdk');
   function sendApprovalEmail(post,currentUser) {
     const defaultClient = SibApiV3Sdk.ApiClient.instance;
     const apiKey = defaultClient.authentications['api-key'];
-    apiKey.apiKey = "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";
+    apiKey.apiKey = "enter you api key here";
   
     const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
   
@@ -16,7 +16,7 @@ const SibApiV3Sdk = require('sib-api-v3-sdk');
     sendSmtpEmail.subject = 'New Post Approval';
     sendSmtpEmail.htmlContent = `A new post "${post.name}" has been added by <b>"${currentUser.username}"</b> and needs your approval.   <p>Click <a href="http://localhost:3333/">here</a> to go to your application.</p>`;
     sendSmtpEmail.sender = { name: 'BlogSpot', email: 'noreply@blogspotbee.com' };
-    sendSmtpEmail.to = [{ email: 'sujalbhatia8034@gmail.com' }]; 
+    sendSmtpEmail.to = [{ email: 'youemailid@gmail.com' }]; 
   
     apiInstance.sendTransacEmail(sendSmtpEmail).then(
         function (data) {

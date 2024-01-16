@@ -33,7 +33,7 @@
                         <p>{{post.description}}</p>
                          <p><strong>Category:</strong> {{post.category}}</p>
                         <p>
-                            <em>Submitted By {{post.author.username}}</em>
+                            <em>Submitted By {{post.author.id.username}}</em>
                         </p>
                         <a class="btn btn-sm btn-warning" href="/posts/{{post._id}}/edit">Edit</a>
                         <form id="delete-form" action="/posts/{{post._id}}/delete" method="POST">

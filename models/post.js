@@ -9,19 +9,11 @@ const postSchema=new mongoose.Schema({
         type:Schema.Types.ObjectId,
         ref:"User"
     }
-    ,
-    username: String
+    
 },
     category:String, 
+    status:String
 
 })
 module.exports=mongoose.model("post",postSchema);
 
-// // post.js
-
-// postSchema.pre("findOneAndRemove", function(next) {
-//     // Check if there are any pre hooks affecting deletion
-//     console.log("Pre hook executed");
-//     next();
-// });
-    

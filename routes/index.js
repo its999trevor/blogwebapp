@@ -21,6 +21,7 @@ router.post('/login', async (req, res) => {
           }else{
               req.session.isLoggedIn=true;
               req.session.user=user;
+            
               res.redirect("/posts");
           }
       }else{

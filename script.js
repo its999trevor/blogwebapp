@@ -4,14 +4,14 @@ const path=require("path");
 const mongoose = require("mongoose");
 const session = require('express-session');
 const User = require("./models/user");
+const bodyParser = require("body-parser");
 
 //config
-const bodyParser = require("body-parser");
-app.use(express.static(path.join(__dirname,"static")));
+app.set('view engine','hbs');
+app.use(express.static(path.join(__dirname,'/public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 var hbs = require('hbs');
-app.set('view engine','hbs');
 hbs.registerPartials(__dirname + '/views/partials', function (err) {
     
 });
@@ -22,7 +22,10 @@ app.use(session({
 app.use((req, res, next) => {
   res.locals.userLoggedIn = req.session.isLoggedIn || false;
   res.locals.currentuser=req.session.user;
-  res.locals.isAdmin = req.session.role === 'admin';
+  if(req.session.role=="admin"){
+  res.locals.isAdmin=true;
+  }
+
   next();
 });
 //routers

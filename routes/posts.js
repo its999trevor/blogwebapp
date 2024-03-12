@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router({ mergeParams: true });
 const postController = require("../controller/posts");
 const Post = require("../models/post");
+const admin = require("../controller/admin");
 
 function checkIfLoggedIn(req,res,next){
   if(req.session.isLoggedIn){
@@ -21,12 +22,12 @@ const isAuthor = async (req, res, next) => {
 
     const currentUser = req.session.user;
 
-    if (!currentUser || (!currentUser._id && !currentUser.isAdmin)) {
+    if (!currentUser || (!currentUser._id && !currentUser.role==="admin")) {
       return res.status(403).send("Unauthorized");
     }
 
    
-    if (post.author.id.equals(currentUser._id) || currentUser.isAdmin) {
+    if (post.author.id.equals(currentUser._id) || currentUser.role==="admin") {
       next();
     } else {
       res.status(403).send("Unauthorized");
